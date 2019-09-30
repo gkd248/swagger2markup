@@ -60,6 +60,9 @@ test {
         systemProperty 'http.nonProxyHosts', System.properties['http.nonProxyHosts']
     }
     systemProperty 'file.encoding', 'UTF-8'
+    afterTest { desc, result -> 
+        logger.quiet "Executing test ${desc.name} [${desc.className}] with result: ${result.resultType}"
+    }
 }
 
 
